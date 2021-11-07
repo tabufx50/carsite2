@@ -76,13 +76,40 @@ export function TopCars() {
 
             <Carousel value={current} onChange={setCurrent} slides={[ (<Car {...testCar} />), (<Car {...testCar2} />), (<Car {...testCar} />), (<Car {...testCar2} />), (<Car {...testCar} />) ]} 
             plugins={[
+                "clickToChange",
                 {
                     resolve: slidesToShowPlugin,
                     options: {
                         numberOfSlides: 3,
-                    }
-                }
+                    },
+                },
             ]}
+            breakpoints={{
+                640: {
+                    plugins: [
+                        {
+                            resolve: slidesToShowPlugin,
+                            options: {
+                                numberOfSlides: 1
+                            }
+                        },
+                        
+                    ]
+
+                },
+                900: {
+                    plugins: [
+                        {
+                            resolve: slidesToShowPlugin,
+                            options: {
+                                numberOfSlides: 2
+                            }
+                        },
+                        
+                    ]
+
+                }
+            }}
             
             />
 
